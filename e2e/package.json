@@ -1,0 +1,13 @@
+{
+  "name": "e2e-roadmap-tests",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "cypress:open": "cypress open"
+  },
+  "devDependencies": {
+    "cypress": "^10.6.0"
+  }
+}
