@@ -15,12 +15,13 @@ export default async function create(
     })
   } else if (title.length < 150) {
     const id = uuidv4()
+    const ip = req.headers['x-forwarded-for'] || 'NA'
     const newEntry = {
       id,
       title,
       created_at: Date.now(),
       score: 1,
-      ip: 'NA',
+      ip,
     }
 
     await redis.hset('features', id, JSON.stringify(newEntry))
