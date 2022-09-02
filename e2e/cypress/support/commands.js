@@ -18,6 +18,17 @@ Cypress.Commands.add(
 )
 
 Cypress.Commands.add(
+  'hasValue',
+  {
+    prevSubject: 'optional',
+  },
+  (subject, value) => {
+    const subjectValue = cy.wrap(subject)
+    return subjectValue.should('have.value', value)
+  },
+)
+
+Cypress.Commands.add(
   'hasInvalidValidationMessage',
   {
     prevSubject: 'optional',
