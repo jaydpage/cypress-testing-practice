@@ -88,6 +88,7 @@ function Item({
         isLast && 'border-b rounded-b-md',
       )}>
       <button
+        data-cy='feature-status'
         className={clsx(
           'ring-1 ring-gray-200 rounded-full w-8 min-w-[2rem] h-8 mr-4 focus:outline-none focus:ring focus:ring-blue-300',
           (isReleased || hasVoted) &&
@@ -102,7 +103,7 @@ function Item({
         className="text font-semibold w-full text-left">
         {feature.title}
       </h3>
-      <div className="bg-gray-200 text-gray-700 text-sm rounded-xl px-2 ml-2">
+      <div data-cy='feature-score' className="bg-gray-200 text-gray-700 text-sm rounded-xl px-2 ml-2">
         {feature.score}
       </div>
     </div>

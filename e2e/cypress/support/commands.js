@@ -1,25 +1,40 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('getByAttribute', (element) => {
+  return cy.get(`[data-cy="${element}"]`)
+})
+
+Cypress.Commands.add('clickElement', (element) => {
+  return cy.get(`[data-cy="${element}"]`).click()
+})
+
+Cypress.Commands.add(
+  'hasText',
+  {
+    prevSubject: 'optional',
+  },
+  (subject, text) => {
+    const subjectValue = cy.wrap(subject)
+    return subjectValue.should('have.text', text)
+  },
+)
+
+Cypress.Commands.add(
+  'hasValue',
+  {
+    prevSubject: 'optional',
+  },
+  (subject, value) => {
+    const subjectValue = cy.wrap(subject)
+    return subjectValue.should('have.value', value)
+  },
+)
+
+Cypress.Commands.add(
+  'typeText',
+  {
+    prevSubject: 'optional',
+  },
+  (subject, text) => {
+    const subjectValue = cy.wrap(subject)
+    return subjectValue.type(text).hasValue(text)
+  },
+)
