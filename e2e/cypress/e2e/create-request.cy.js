@@ -29,7 +29,7 @@ describe('empty spec', () => {
     cy.clickElement('request-button')
     // Assert
     cy.getByAttribute('feature-input').hasInvalidValidationMessage(
-      'Please fill out this field.',
+      'Please fill in this field.',
     )
   })
 })
