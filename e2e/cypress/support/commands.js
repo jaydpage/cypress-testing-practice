@@ -35,7 +35,9 @@ Cypress.Commands.add(
   },
   (subject, message) => {
     const subjectValue = cy.wrap(subject)
-    return subjectValue.invoke('prop', 'validationMessage').should('eq', message)
+    return subjectValue
+      .invoke('prop', 'validationMessage')
+      .should('equal', message)
   },
 )
 
