@@ -48,6 +48,6 @@ Cypress.Commands.add(
   },
   (subject, text) => {
     const subjectValue = cy.wrap(subject)
-    return subjectValue.type(text).hasValue(text)
+    return subjectValue.clear().type(text).hasValue(text)
   },
 )

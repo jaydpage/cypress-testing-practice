@@ -24,9 +24,15 @@ describe('subscribe with email', () => {
     cy.getByAttribute('email-input').hasInvalidValidationMessage(
       `Please fill in this field.`,
     )
+    
     cy.getByAttribute('email-input').typeText('jaydpage')
     cy.getByAttribute('email-input').hasInvalidValidationMessage(
-      `Please include an '@' in the email address. 'jaydpage' is missing an '@'`,
+      `Please include an '@' in the email address. 'jaydpage' is missing an '@'.`,
+    )
+
+    cy.getByAttribute('email-input').typeText('jaydpage@')
+    cy.getByAttribute('email-input').hasInvalidValidationMessage(
+      `Please enter a part following '@'. 'jaydpage@' is incomplete.`,
     )
   })
 })
