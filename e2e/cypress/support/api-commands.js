@@ -9,8 +9,28 @@ Cypress.Commands.add('createRequest', (title) => {
   })
 })
 
+Cypress.Commands.add('vote', ({ id, title, ipAddress }) => {
+  return cy.request({
+    method: 'POST',
+    url: '/api/vote',
+    headers: {
+      'x-forwarded-for': ipAddress,
+    },
+    body: { id, title },
+  })
+})
+
+Cypress.Commands.add('getFeatures', () => {
+  return cy
+    .request({
+      method: 'GET',
+      url: '/api/features',
+    })
+    .then(({ body }) => {
+      return cy.wrap(body.features)
+    })
+})
+
 Cypress.Commands.add('clearData', () => {
   return cy.request(`/api/clearData`)
 })
-
-
