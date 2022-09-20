@@ -15,8 +15,11 @@ describe('voting', () => {
     }
     cy.request(options)
     cy.visit('/')
-
+    cy.getByAttribute('feature-score').hasText('1')
     // Act
+    cy.clickElement('feature-status')
     // Assert
+    cy.getByAttribute('feature-score').hasText('2')
+    cy.getByAttribute('feature-status').should('have.class', 'bg-green-100')
   })
 })
