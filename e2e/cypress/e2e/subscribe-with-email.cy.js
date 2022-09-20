@@ -1,6 +1,6 @@
 describe('subscribe with email', () => {
   beforeEach(() => {
-    cy.visit('/')
+    cy.visitHomePage()
   })
 
   it('displays success toast when email subscription is successful', () => {

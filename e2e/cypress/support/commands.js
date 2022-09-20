@@ -1,3 +1,7 @@
+Cypress.Commands.add('visitHomePage', (element) => {
+  return cy.visit('/')
+})
+
 Cypress.Commands.add('getByAttribute', (element) => {
   return cy.get(`[data-cy="${element}"]`)
 })

@@ -1,7 +1,7 @@
 describe('create request', () => {
   beforeEach(() => {
-    cy.request(`/api/clearData`)
-    cy.visit('/')
+    cy.clearData()
+    cy.visitHomePage()
   })
 
   it('creates a request and adds it to the list', () => {
