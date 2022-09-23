@@ -2,7 +2,7 @@
 
 ## Pre requisites
 
-1. [NodeJS](https://nodejs.org)
+1. [Node.js](https://nodejs.org)
 2. [Docker](https://www.docker.com/)
 
 ## Create the application
@@ -69,7 +69,7 @@ http://localhost:3000/api/vote
 }
 ```
 
-HEADERS
+`HEADERS`
 
 ```
     x-forwarded-for 192.168.0.1
@@ -168,7 +168,7 @@ Acceptance Criteria:
 
 ```
 Actions:
-- Using the `create` endpoint, add a request using a different ip address to your local ip (see documentation above about the `vote` endpoint)
+- Using the 'create' endpoint, add a request using a different ip address to your local ip (see documentation above about the 'vote' endpoint)
 - Visit the home page
 - The request should appear in the request list
 - The vote count on the request should be 1
@@ -185,7 +185,7 @@ Acceptance Criteria:
 Actions:
 - Type a request into the request input box
 - Click the "Request" button
-- Using the `vote` endpoint, vote for the request using a different ip address to your local ip
+- Using the 'vote' endpoint, vote for the request using a different ip address to your local ip
 
 Acceptance Criteria:
 - The vote count on the request should increase to 2
@@ -196,14 +196,14 @@ Acceptance Criteria:
 
 ```
 Actions:
-- Using the `create` endpoint, add 3 different requests
+- Using the 'create' endpoint, add 3 different requests
 - Visit the home page
 - Ensure that each feature was added to the feature list
-- Using the `features` endpoint, query the features and note the `id` of each  feature that was added
-- Using the `vote` endpoint, vote for the 3rd feature in the list
+- Using the 'features' endpoint, query the features and note the 'id' of each  feature that was added
+- Using the 'vote' endpoint, vote for the 3rd feature in the list
 - Reload the web page
 - Validate that the 3rd feature is now at the top of the list
-- Using the `vote` endpoint, vote for the 2nd feature twice (with 2 different ip addresses)
+- Using the 'vote' endpoint, vote for the 2nd feature twice (with 2 different ip addresses)
 - Reload the web page
 
 Acceptance Criteria:
@@ -216,18 +216,18 @@ Acceptance Criteria:
 ### Extend the application
 
 ```
-- Extend the `create` endpoint to persist a `released` flag as `false` by default
-- Update the `Feature` interface to include the `released` property
-- Update the rendering of the requests to use the `released` flag value for the `isReleased` property of the `Item` component
-- Create a `release` endpoint that accepts a `id` and updates the release flag of the persisted feature to be `true`
+- Extend the 'create' endpoint to persist a 'released' flag as false by default
+- Update the 'Feature' interface to include the 'released' property
+- Update the rendering of the requests to use the 'released' flag value for the 'isReleased' property of the 'Item' component
+- Create a 'release' endpoint that accepts a 'id' and updates the release flag of the persisted feature to be true
 ```
 
 ### Shows the feature as released
 
 ```
 Actions:
-- Create a request either through the UI or the `create` endpoint
-- Use the `release` endpoint to flag the request as released
+- Create a request either through the UI or the 'create' endpoint
+- Use the 'release' endpoint to flag the request as released
 - Reload the web page
 
 Acceptance Criteria:
