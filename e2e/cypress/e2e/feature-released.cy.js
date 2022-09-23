@@ -3,7 +3,7 @@ describe('feature released', () => {
     cy.clearData()
   })
 
-  it('shows the feature as implemented', () => {
+  it('shows the feature as released', () => {
     // Arrange
     const feature = 'Please release this feature'
     cy.createRequest(feature)
