@@ -14,7 +14,7 @@ describe('feature released', () => {
       cy.getByAttribute('request-item-0').hasText(feature)
       cy.getByAttribute('feature-status').hasText('👍')
       cy.release({ id })
-      cy.visitHomePage()
+      cy.reload()
       // // Assert
       cy.getByAttribute('feature-status').hasText('✅')
     })

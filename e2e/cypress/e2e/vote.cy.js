@@ -24,12 +24,12 @@ describe('voting', () => {
       const id = features[0].id
       // Act
       cy.vote({ id, title, ipAddress: '192.168.1.1' })
-      cy.visitHomePage()
+      cy.reload()
       // Assert
       cy.getByAttribute('feature-score').hasText('2')
 
       cy.vote({ id, title, ipAddress: '192.168.1.2' })
-      cy.visitHomePage()
+      cy.reload()
       cy.getByAttribute('feature-score').hasText('3')
     })
   })
@@ -52,7 +52,7 @@ describe('voting', () => {
       cy.getByAttribute('request-item-2').hasText(feature3)
 
       cy.vote({ id: id3, title: feature3, ipAddress: '192.168.1.1' })
-      cy.visitHomePage()
+      cy.reload()
       // Assert
       cy.getByAttribute('request-item-0').hasText(feature3)
       cy.getByAttribute('request-item-1').hasText(feature1)
@@ -60,7 +60,7 @@ describe('voting', () => {
 
       cy.vote({ id: id2, title: feature2, ipAddress: '192.168.1.1' })
       cy.vote({ id: id2, title: feature2, ipAddress: '192.168.1.2' })
-      cy.visitHomePage()
+      cy.reload()
 
       cy.getByAttribute('request-item-0').hasText(feature2)
       cy.getByAttribute('request-item-1').hasText(feature3)
