@@ -20,6 +20,14 @@ Cypress.Commands.add('vote', ({ id, title, ipAddress }) => {
   })
 })
 
+Cypress.Commands.add('release', ({ id }) => {
+  return cy.request({
+    method: 'POST',
+    url: '/api/release',
+    body: { id },
+  })
+})
+
 Cypress.Commands.add('getFeatures', () => {
   return cy
     .request({
