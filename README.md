@@ -1,9 +1,22 @@
 # Cypress Test Practice
 
+The goal of this exercise is to explore and learn about the concept of end to end (e2e) testing, specifically using the [cypress](https://www.cypress.io/) testing framework.
+At the bottom of this page you will find several [test cases](#test-cases) which are currently undertaken manually before each release to ensure that the application does not have any regressions.
+You will need to
+
+1. Follow the steps below to create and run the application
+2. [Install](#install-cypress) and run cypress
+3. Using the [cypress documentation](https://docs.cypress.io/guides/overview/why-cypress), work towards automating the [test cases](#test-cases)
+
+Note that in order to successfully automate the testing you will likely need to make changes to the application code to better facilitate this testing, for example:
+- Adding data attributes or classes to specific html elements
+- Adding end points that are only used by testing, for example and endpoint that can flush redis between test runs
+
 ## Pre requisites
 
 1. [Node.js](https://nodejs.org)
 2. [Docker](https://www.docker.com/)
+3. [Visual Studio Code](https://code.visualstudio.com/) (or another editor of your choosing)
 
 ## Create the application
 
@@ -30,6 +43,9 @@ In `create.ts` change the `ip` value to
 ```
 ip: req.headers['x-forwarded-for'] || 'NA'
 ```
+
+## Install Cypress
+Follow the installation guide at https://docs.cypress.io/guides/getting-started/installing-cypress to get up and running with cypress.
 
 # Using the API
 
