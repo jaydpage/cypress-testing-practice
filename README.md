@@ -1,20 +1,20 @@
 # Cypress Test Practice
 
 The goal of this exercise is to explore and learn about the concept of end to end (e2e) testing, specifically using the [cypress](https://www.cypress.io/) testing framework.
-At the bottom of this page you will find several [test cases](#test-cases) which are currently executed manually before each release to ensure that the application does not have any regressions.
+The application under test is a sample Next.js with Redis application that can easily be generated using a script (see below).
+
+In our fictitious scenario, we have a set of test cases (documented in the [test cases](#test-cases) section below) that are currently executed manually before each release of the software to ensure that the application does not have any regressions. Your task is to automate these tests.
 
 You will need to
 
 1. Follow the steps below to create and run the application
-2. [Install](#install-cypress) and run cypress
-3. Work towards automating the [test cases](#test-cases) by using the [cypress documentation](https://docs.cypress.io/guides/overview/why-cypress)
-
-Note: to successfully automate the testing changes will likely need to be made to the application code to better facilitate the automation, for example:
-
-- Adding data attributes or classes to specific HTML elements
-- Adding end points that are only used by testing, for example and endpoint that can flush redis between test runs
+2. Get familiar with the API of the application
+3. [Install](#install-cypress) and run cypress
+4. Automate the [test cases](#test-cases) with the help of the [cypress documentation](https://docs.cypress.io/guides/overview/why-cypress)
 
 ## Pre requisites
+
+You will need the following software on your machine in order to get the application up and running:
 
 1. [Node.js](https://nodejs.org)
 2. [Docker](https://www.docker.com/)
@@ -24,6 +24,7 @@ Note: to successfully automate the testing changes will likely need to be made t
 
 ```
 npx create-next-app --example with-redis roadmap
+cd roadmap
 ```
 
 ## Run Redis
@@ -40,10 +41,18 @@ npm run dev
 
 ## Update logic for IP Address tracking
 
-In `create.ts` change the `ip` value to
+In order to successfully use automation to test we have found that you will need to make this change to the code, so it is provided here.
 
+Open the `pages/api/create.ts` file and change the `ip` value to the following. This means replacing line 23 (or thereabouts, in case this has changed) from:
+
+```typescript
+      ip: 'NA',
 ```
-ip: req.headers['x-forwarded-for'] || 'NA'
+
+to
+
+```typescript
+      ip: req.headers['x-forwarded-for'] || 'NA'
 ```
 
 ## Install Cypress
@@ -95,6 +104,13 @@ http://localhost:3000/api/vote
 ```
 
 # Test Cases
+
+This section lists the current manual test cases that we would like to automate.
+
+**Note**: changes may need to be made to the application code to better facilitate the automation, for example:
+
+- Adding data attributes or classes to specific HTML elements
+- Adding end points that are only used by testing; for example: an endpoint that can flush redis between test runs
 
 ## 1. Adding a request
 
